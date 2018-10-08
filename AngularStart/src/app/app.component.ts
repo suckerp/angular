@@ -22,7 +22,7 @@ export class HalloComponent{
     <li> {{ stringVar }} </li>
     <li> {{returnString()}} </li>
     <li> {{convertObject}} </li>
-    <li> {{ timer }}
+    <li> {{ timer }} </li>
   `,
   styles: []
 })
@@ -79,13 +79,200 @@ export class PropertyBindingComponent {
   }
 }
 
+@Component({
+  selector: 'EventBinding',
+  template: `
+    <h1> EventBinding </h1>
+    <ul>
+      <!-- Standard HTML/JS Version -->
+      <li> 
+        <button onclick = "console.log('click')">click</button>
+      </li>
+      <!-- Angular Event Binding -->
+      <li> 
+        <button (click) = "onClick($event)">click</button>
+      </li>
+      <li>
+        <!-- $event ist ein festgelegtes Anguler Element, dass die Daten des Elements erhält -->
+        <input 
+        (change) = "onChange($event)"
+        (input) = "onInput($event)"
+        >
+      </li>
+      <li> </li>
+      <li> </li>
+      <li> </li>
+      <li> </li>
+    </ul>
+  `,
+  styles: []
+})
+export class EventBindingComponent {
+  onClick(e:Event){
+    console.log("Click")
+    console.log(e)
+  }
+  onChange(e:Event){
+    let input:HTMLInputElement = e.target as HTMLInputElement
+    console.log("Change")
+    console.log(e)
+    console.log(input)
+  }
+  onInput(e:Event){
+    console.log("Input")
+    console.log(e)
+  }
+}
+
+
+// Kombination aus EventBinding und Propertybinding
+@Component({
+  selector: 'Aufgabe01',
+  template: `
+    <h1> Aufgabe01 </h1>
+
+      <!-- Übergabe des $Events an die Funktion -->
+      <input (input) = "onInput($event)"> <br>
+      <!-- im output wird soll dann der Wert aus dem input Feld eingetragen werden -->
+      
+      {{output}}
+  `,
+  styles: []
+})
+export class Aufgabe01Component {
+  // erst output definieren, damit es im onChange() bekannt ist
+  output:string
+  onInput(e:Event){
+    // das Target des onClicks auslesen
+    const input = e.target as HTMLInputElement
+    // this ist der Klassenname, der zum output gehört und value ist der Wert, der übergeben wird
+    this.output = input.value
+  }
+}
+
+// Kombination aus EventBinding und Propertybinding
+@Component({
+  selector: 'Aufgabe02',
+  template: `
+    <h1> Aufgabe02 </h1>
+
+      <!-- Übergabe des $Events an die Funktion -->
+      <input (input) = "onInput1($event)">
+      <input (input) = "onInput2($event)"> 
+      <br>
+      <!-- im output wird soll dann der Wert aus dem input Feld eingetragen werden -->
+      {{output}}
+  `,
+  styles: []
+})
+export class Aufgabe02Component {
+  // Es sind alles public Eigenschaften brauchen daher kein const oder let
+  // können aus allen Funktionen heraus ausgelesen und geändert werden
+  public zahl1:number = 0
+  public zahl2:number = 0
+  public output:number = 0
+  onInput1(e:Event){
+    // erste Zahl auslesen und mit der zweiten Zahl addieren
+    const input = e.target as HTMLInputElement
+    this.zahl1 = Number(input.value)
+    this.output = this.zahl1 + this.zahl2
+  }
+  onInput2(e:Event){
+    // zweite Zahl auslesen und mit der ersten Zahl addieren
+    const input = e.target as HTMLInputElement
+    this.zahl2 = Number(input.value)
+    this.output = this.zahl1 + this.zahl2
+  }
+
+}
+
+// Stoppuhr
+@Component({
+  selector: 'Aufgabe03',
+  template: `
+    <h1> Aufgabe03 </h1>
+
+      <!-- Übergabe des $Events an die Funktion -->
+      <button (click) = "onClick()">click</button><br>
+      <!-- im output wird soll dann der Wert aus dem input Feld eingetragen werden -->
+      {{output}}
+  `,
+  styles: []
+})
+export class Aufgabe03Component {
+  // Es sind alles public Eigenschaften brauchen daher kein const oder let
+  // können aus allen Funktionen heraus ausgelesen und geändert werden
+  public start = false
+  public Beginn:Date
+  public Ende:Date
+  public output:number = 0
+  public timer = 0
+  public intervall
+
+
+  onClick(){
+    if (this.start == false){
+      this.start = true
+      this.timer = 0
+      this.Beginn = new Date()
+      this.output = 0
+      this.intervall = setInterval(()=>{
+      this.output++
+        }, 1000)
+    }
+    else{
+      this.start = false
+      this.Ende = new Date()
+      clearInterval(this.intervall)
+      this.output = (Number(this.Ende) - Number(this.Beginn)) / 1000
+    }
+  }
+}
+
+//Einfacher Zufallsgenerator
+@Component({
+  selector: 'Aufgabe04',
+  template: `
+    <h1> Aufgabe04 </h1>
+
+      <!-- Übergabe des $Events an die Funktion -->
+      <button (click) = "onClick()">click</button><br><br>
+      <!-- im output wird soll dann der Wert aus dem input Feld eingetragen werden -->
+      {{output1}}  {{output2}}  {{output3}} 
+  `,
+  styles: []
+})
+export class Aufgabe04Component {
+  // Es sind alles public Eigenschaften brauchen daher kein const oder let
+  // können aus allen Funktionen heraus ausgelesen und geändert werden
+  public output1:number = 0
+  public output2:number = 0
+  public output3:number = 0
+
+  onClick(){
+    this.output1 = Math.round(Math.random()*1000)
+    this.output2 = Math.round(Math.random()*1000)
+    this.output3 = Math.round(Math.random()*1000)
+
+  }
+}
+
+
+
+
 
 @Component({
   selector: 'app-root',
   template: `
     <!-- <Hallo></Hallo> -->
     <!-- <StringInterpolation></StringInterpolation> -->
-    <PropertyBinding></PropertyBinding>
+    <!-- <PropertyBinding></PropertyBinding> -->
+    <!-- <EventBinding></EventBinding> -->
+    <!-- <Aufgabe01></Aufgabe01> -->
+    <!-- <Aufgabe02></Aufgabe02> -->
+    <!-- <Aufgabe03></Aufgabe03> -->
+    <Aufgabe04></Aufgabe04>
+
   `,
   styles: [``]
 })

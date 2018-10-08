@@ -5,7 +5,12 @@ import {
   AppComponent, 
   HalloComponent, 
   StringInterpolationComponent, 
-  PropertyBindingComponent 
+  PropertyBindingComponent,
+  EventBindingComponent,
+  Aufgabe01Component,
+  Aufgabe02Component,
+  Aufgabe03Component,
+  Aufgabe04Component
 } from './app.component';
 
 @NgModule({
@@ -13,7 +18,12 @@ import {
     AppComponent,
     HalloComponent,
     StringInterpolationComponent,
-    PropertyBindingComponent
+    PropertyBindingComponent,
+    EventBindingComponent,
+    Aufgabe01Component,
+    Aufgabe02Component,
+    Aufgabe03Component,
+    Aufgabe04Component
   ],
   imports: [
     BrowserModule
