@@ -101,8 +101,6 @@ export class PropertyBindingComponent {
       </li>
       <li> </li>
       <li> </li>
-      <li> </li>
-      <li> </li>
     </ul>
   `,
   styles: []
@@ -125,12 +123,26 @@ export class EventBindingComponent {
 }
 
 
+@Component({
+  selector: 'TwoWayBinding',
+  template: `
+    <input [(ngModel)] = "text"><br>
+    <input [(ngModel)] = "text">
+
+  `,
+  styles: []
+})
+export class TwoWayBindingComponent{
+  text = ""
+
+}
+
+
 // Kombination aus EventBinding und Propertybinding
 @Component({
   selector: 'Aufgabe01',
   template: `
     <h1> Aufgabe01 </h1>
-
       <!-- Übergabe des $Events an die Funktion -->
       <input (input) = "onInput($event)"> <br>
       <!-- im output wird soll dann der Wert aus dem input Feld eingetragen werden -->
@@ -155,7 +167,6 @@ export class Aufgabe01Component {
   selector: 'Aufgabe02',
   template: `
     <h1> Aufgabe02 </h1>
-
       <!-- Übergabe des $Events an die Funktion -->
       <input (input) = "onInput1($event)">
       <input (input) = "onInput2($event)"> 
@@ -183,7 +194,6 @@ export class Aufgabe02Component {
     this.zahl2 = Number(input.value)
     this.output = this.zahl1 + this.zahl2
   }
-
 }
 
 // Stoppuhr
@@ -193,9 +203,9 @@ export class Aufgabe02Component {
     <h1> Aufgabe03 </h1>
 
       <!-- Übergabe des $Events an die Funktion -->
-      <button (click) = "onClick()">click</button><br>
+      <button (click) = "onClick()">Start/Stop</button><br>
       <!-- im output wird soll dann der Wert aus dem input Feld eingetragen werden -->
-      {{output}}
+      <div>{{stunde}}:{{minute}}:{{sekunde}}</div>
   `,
   styles: []
 })
@@ -203,28 +213,39 @@ export class Aufgabe03Component {
   // Es sind alles public Eigenschaften brauchen daher kein const oder let
   // können aus allen Funktionen heraus ausgelesen und geändert werden
   public start = false
-  public Beginn:Date
-  public Ende:Date
-  public output:number = 0
-  public timer = 0
+  //public Beginn:Date
+  //public Ende:Date
+  public sekunde:number = 0
+  public minute:number = 0
+  public stunde:number = 0
   public intervall
-
 
   onClick(){
     if (this.start == false){
       this.start = true
-      this.timer = 0
-      this.Beginn = new Date()
-      this.output = 0
+      //this.Beginn = new Date()
+      this.sekunde = 0
       this.intervall = setInterval(()=>{
-      this.output++
+      this.sekunde++
+      if (this.sekunde > 59){
+        console.log(this.sekunde)
+        this.minute++
+        this.sekunde = 0
+        if (this.minute > 59){
+          this.minute = 0
+          this.stunde++
+        }
+      }
         }, 1000)
     }
     else{
       this.start = false
-      this.Ende = new Date()
+      //this.Ende = new Date()
       clearInterval(this.intervall)
-      this.output = (Number(this.Ende) - Number(this.Beginn)) / 1000
+      this.stunde
+      this.minute
+      //let temp = (Number(this.Ende) - Number(this.Beginn)) / 1000
+      this.sekunde
     }
   }
 }
@@ -271,7 +292,14 @@ export class Aufgabe04Component {
     <!-- <Aufgabe01></Aufgabe01> -->
     <!-- <Aufgabe02></Aufgabe02> -->
     <!-- <Aufgabe03></Aufgabe03> -->
-    <Aufgabe04></Aufgabe04>
+    <!-- <Aufgabe04></Aufgabe04> -->
+    <!-- <TwoWayBinding></TwoWayBinding> -->
+    <button routerLink = "Hallo"> Hallo </button>
+    <button routerLink = "Aufgabe01"> Aufgabe01 </button>
+    <button routerLink = "Aufgabe02"> Aufgabe02 </button>
+    <button routerLink = "Aufgabe03"> Aufgabe03 </button>
+    <button routerLink = "Aufgabe04"> Aufgabe04 </button>
+    <router-outlet></router-outlet>
 
   `,
   styles: [``]

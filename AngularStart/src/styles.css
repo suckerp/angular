@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+button{
+    min-width: 15vw;
+    min-height: 5vh;
+    margin: 2vh;
+    color: white;
+    font-weight: bold;
+    background-color: blue;
+}
+
+input{
+    min-width: 15vw;
+    margin-right: 20px
+}
+
+div{
+    margin-left: 10px;
+}
