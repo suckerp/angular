@@ -5,8 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router'
 
 
-import { 
-  AppComponent, 
+import {
   HalloComponent, 
   StringInterpolationComponent, 
   PropertyBindingComponent,
@@ -15,7 +14,15 @@ import {
   Aufgabe01Component,
   Aufgabe02Component,
   Aufgabe03Component,
-  Aufgabe04Component
+  Aufgabe04Component,
+  Aufgabe05Component,
+  ngIfComponent,
+  ngForComponent
+} from './components'
+
+
+import { 
+  AppComponent
 } from './app.component';
 
 const myRoutes:Routes = [
@@ -24,7 +31,10 @@ const myRoutes:Routes = [
   { path: 'Aufgabe01', component: Aufgabe01Component },
   { path: 'Aufgabe02', component: Aufgabe02Component },
   { path: 'Aufgabe03', component: Aufgabe03Component },
-  { path: 'Aufgabe04', component: Aufgabe04Component }
+  { path: 'Aufgabe04', component: Aufgabe04Component },
+  { path: 'Aufgabe05', component: Aufgabe05Component },
+  { path: 'tut-ngIf', component: ngIfComponent },
+  { path: 'tut-ngFor', component: ngForComponent }
 ]
 
 
@@ -39,7 +49,10 @@ const myRoutes:Routes = [
     Aufgabe01Component,
     Aufgabe02Component,
     Aufgabe03Component,
-    Aufgabe04Component
+    Aufgabe04Component,
+    Aufgabe05Component,
+    ngIfComponent,
+    ngForComponent
   ],
   imports: [
     BrowserModule,
