@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent, ToDoComponent } from './app.component';
+import { AppComponent } from './app.component';
+
+import { ToDoComponent } from './components'
 
 @NgModule({
   declarations: [

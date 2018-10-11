@@ -1,0 +1,26 @@
+button {
+    background: red;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 50vw 7vw 7vw;
+}
+
+.item-text{
+    grid-column: 1;
+    font-weight: bold;
+    margin-left: 1vw;
+}
+
+.item-button1{
+    grid-column: 2;
+    font-weight: bold;
+    margin-left: 1vw;
+}
+
+.item-button2{
+    grid-column: 3;
+    font-weight: bold;
+    margin-left: 1vw;
+}
