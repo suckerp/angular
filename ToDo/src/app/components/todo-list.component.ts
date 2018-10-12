@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ToDo', 
@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
         <!-- ng-container wird nicht angezeigt, aber es hilft, damit das item-Feld und der button im gleichen child-Element sind -->
         <ng-container *ngFor="let item of items; let index = index"> 
           <!-- Klasse item-text ist für das item-Feld und soll in der css im Grid in Spalte 1-->
+          <div class="item-counter"> - </div>
           <div class="item-text" [style.text-decoration] = "(item.done) ? 'line-through':''"> {{item.text}} </div>
           <!-- Klasse item-button ist für den Button und soll in der css im Grid in Spalte 2-->
           <button class="item-button1" (click)="onStrike(index)">Done</button>
@@ -19,13 +20,11 @@ import { Component } from '@angular/core';
         <button class="item-button2" (click)="onInput(input1.value); input1.value='' ">Add</button>
       </div>
 
-
-      
   `,
   styleUrls: ['../css/todo-list.component.css']
 
 })
-export class ToDoComponent{
+export class ToDoComponent implements OnInit {
     public items = []
     
     //

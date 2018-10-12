@@ -22,6 +22,7 @@ import { Component } from '@angular/core';
     <button routerLink = "Aufgabe05"> Aufgabe05 </button>
     <button routerLink = "tut-ngIf"> tut-ngIf </button>
     <button routerLink = "tut-ngFor"> tut-ngFor </button>
+    <button routerLink = "viewChild"> ViewChild </button>
     <router-outlet></router-outlet>
   `,
   styles: [``]

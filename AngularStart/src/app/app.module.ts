@@ -24,6 +24,7 @@ import {
 import { 
   AppComponent
 } from './app.component';
+import { ViewChildComponent } from './components/view-child.component';
 
 const myRoutes:Routes = [
   { path: '', redirectTo: "/Hallo", pathMatch: "full" },
@@ -34,7 +35,8 @@ const myRoutes:Routes = [
   { path: 'Aufgabe04', component: Aufgabe04Component },
   { path: 'Aufgabe05', component: Aufgabe05Component },
   { path: 'tut-ngIf', component: ngIfComponent },
-  { path: 'tut-ngFor', component: ngForComponent }
+  { path: 'tut-ngFor', component: ngForComponent },
+  { path: 'viewChild', component: ViewChildComponent }
 ]
 
 
@@ -52,7 +54,8 @@ const myRoutes:Routes = [
     Aufgabe04Component,
     Aufgabe05Component,
     ngIfComponent,
-    ngForComponent
+    ngForComponent,
+    ViewChildComponent
   ],
   imports: [
     BrowserModule,
