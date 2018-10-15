@@ -20,6 +20,7 @@ import { Component } from '@angular/core';
     <button routerLink = "Aufgabe03"> Aufgabe03 </button>
     <button routerLink = "Aufgabe04"> Aufgabe04 </button>
     <button routerLink = "Aufgabe05"> Aufgabe05 </button>
+    <button routerLink = "Aufgabe06"> Aufgabe06 </button>
     <button routerLink = "tut-ngIf"> tut-ngIf </button>
     <button routerLink = "tut-ngFor"> tut-ngFor </button>
     <button routerLink = "viewChild"> ViewChild </button>

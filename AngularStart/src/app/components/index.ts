@@ -9,6 +9,7 @@ import {Aufgabe02Component} from './aufgabe02.component'
 import {Aufgabe03Component} from './aufgabe03.component'
 import {Aufgabe04Component} from './aufgabe04.component'
 import {Aufgabe05Component} from './aufgabe05.component'
+import {Aufgabe06Component} from './aufgabe06.component'
 import {ngIfComponent, ngForComponent} from './ngif-ngfor.component'
 
 export {
@@ -22,6 +23,7 @@ export {
     Aufgabe03Component,
     Aufgabe04Component,
     Aufgabe05Component,
+    Aufgabe06Component,
     ngIfComponent,
     ngForComponent
 }

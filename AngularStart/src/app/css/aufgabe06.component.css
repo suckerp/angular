@@ -1,0 +1,10 @@
+
+
+.label {
+    margin: 10px;
+}
+
+.no-spinners {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+}

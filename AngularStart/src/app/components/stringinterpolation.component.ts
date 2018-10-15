@@ -5,13 +5,14 @@ import { Component } from '@angular/core';
     template: `
       <h1> TEST </h1>
       <ul>
-      <li> {{ "String"}} </li>
-      <li> {{ "zusammengesetzer " + "String" }} </li>
-      <li>{{ "Ternary" + ((true)?" Operator":"") }}</li>
-      <li> {{ stringVar }} </li>
-      <li> {{returnString()}} </li>
-      <li> {{convertObject}} </li>
-      <li> {{ timer }} </li>
+        <li> {{ "String"}} </li>
+        <li> {{ "zusammengesetzer " + "String" }} </li>
+        <li>{{ "Ternary" + ((true)?" Operator":"") }}</li>
+        <li> {{ stringVar }} </li>
+        <li> {{returnString()}} </li>
+        <li> {{convertObject}} </li>
+        <li> {{ timer }} </li>
+      </ul>
     `,
     styles: []
   })

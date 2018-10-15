@@ -16,6 +16,7 @@ import {
   Aufgabe03Component,
   Aufgabe04Component,
   Aufgabe05Component,
+  Aufgabe06Component,
   ngIfComponent,
   ngForComponent
 } from './components'
@@ -34,6 +35,7 @@ const myRoutes:Routes = [
   { path: 'Aufgabe03', component: Aufgabe03Component },
   { path: 'Aufgabe04', component: Aufgabe04Component },
   { path: 'Aufgabe05', component: Aufgabe05Component },
+  { path: 'Aufgabe06', component: Aufgabe06Component },
   { path: 'tut-ngIf', component: ngIfComponent },
   { path: 'tut-ngFor', component: ngForComponent },
   { path: 'viewChild', component: ViewChildComponent }
@@ -53,6 +55,7 @@ const myRoutes:Routes = [
     Aufgabe03Component,
     Aufgabe04Component,
     Aufgabe05Component,
+    Aufgabe06Component,
     ngIfComponent,
     ngForComponent,
     ViewChildComponent

@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
     template: `
       <input [(ngModel)] = "text"><br>
       <input [(ngModel)] = "text">
-  
     `,
     styles: []
   })

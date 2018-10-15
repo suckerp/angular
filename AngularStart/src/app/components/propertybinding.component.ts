@@ -10,7 +10,6 @@ import { Component } from '@angular/core';
         <li [style.background-color] = "mycolor"> text </li>
         <li [contentEditable] = "editierbar"> editierbar</li>
         <li [innerHTML] = "timer"> </li>
-        <li> </li>
       </ul>
     `,
     styles: []

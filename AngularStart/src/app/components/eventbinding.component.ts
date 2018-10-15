@@ -20,8 +20,6 @@ import { Component } from '@angular/core';
           (input) = "onInput($event)"
           >
         </li>
-        <li> </li>
-        <li> </li>
       </ul>
     `,
     styles: []

@@ -5,11 +5,11 @@ import { map } from 'rxjs/operators'
 @Component({
   selector: 'app-view-child',
   template: `
-  
+  <div #div1>
     <h1>View Child</h1>
     <button #btn1 id="btn2">btn1</button>
     <input #input1>
-   
+  </div>
   `,
   styles: []
 })
@@ -24,17 +24,21 @@ export class ViewChildComponent implements OnInit {
   @ViewChild('input1') 
   public input1:ElementRef<HTMLInputElement>
 
+  @ViewChild('div1') 
+  public div1:ElementRef<HTMLDivElement>
 
   //ngOnInit wird ausgeführt, wenn die Seite vollständig geladen ist
   //ähnlich wie früher DOMContent Loaded bzw. das JS nach dem Body einfügen
   ngOnInit() {
     //
-    fromEvent(this.btn1.nativeElement,'click')
+
+    fromEvent(this.input1.nativeElement,'change')
       .pipe(
         map(x => this.input1.nativeElement.value)
       )
       .subscribe(x => {
         console.log(x)
+        this.input1.nativeElement.value = ""
       })
 
 
