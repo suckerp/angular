@@ -23,10 +23,12 @@ import { Component } from '@angular/core';
     <button routerLink = "Aufgabe06"> Aufgabe06 </button>
     <button routerLink = "tut-ngIf"> tut-ngIf </button>
     <button routerLink = "tut-ngFor"> tut-ngFor </button>
-    <button routerLink = "viewChild"> ViewChild </button>
+    <button class="button" routerLink = "viewChild"> ViewChild </button>
     <router-outlet></router-outlet>
   `,
-  styles: [``]
+  styles: [`
+    .button{border-radius:50%; font-size:10px;}
+  `]
 })
 export class AppComponent {
   title = 'AngularStart';

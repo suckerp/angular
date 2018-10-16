@@ -12,8 +12,7 @@ import { Component } from '@angular/core';
         <label class="label">k eingeben (muss kleiner n sein):</label>
         <input #k class="no-spinners" type="number" pattern="[0-9]*" inputmode="numeric" placeholder="k eingeben (muss kleiner n sein)">
 
-        <button (click) = "onClick(n.value, k.value)">click</button><br><br>
-        <!-- im output wird soll dann der Wert aus dem input Feld eingetragen werden -->
+        <button (click) = "onClick(n.value, k.value)">click</button>
       </div>
 
       <div *ngIf = "show">
