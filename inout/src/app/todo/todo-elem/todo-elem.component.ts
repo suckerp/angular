@@ -13,9 +13,7 @@ export class TodoElemComponent implements OnInit {
   @Output('delete') setDeleteEvent: EventEmitter<string>
   @Output('done') setDoneEvent:EventEmitter<string>
 
-  
   public content:todo
-  
 
   constructor() {
     //EventEmitter ist eine Klasse und davon muss im Constructor zwingend eine neue Instanz angelegt werden
@@ -24,7 +22,7 @@ export class TodoElemComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.content = {index: this.index, text: this.text, done:false}
+    this.content = {text: this.text, done:false}
   }
 
   doneEvent(event:Event){
@@ -37,12 +35,7 @@ export class TodoElemComponent implements OnInit {
   }
 
   deleteEvent(event){
-
-    console.log(event)
-
     this.setDeleteEvent.emit(this.index)
-
-
   }
 
 }

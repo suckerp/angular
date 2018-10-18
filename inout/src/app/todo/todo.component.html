@@ -1,7 +1,7 @@
 <h1>Irgendwas mit ToDo und so!!!</h1>
 <div *ngFor = "let elem of todoArray; let index = index">
-  <!-- muss über den Selectornamen in der todo-elem.componen.ts angesprcohen werden-->
-  <app-todo-elem [index]="index" [text]="elem.text" (done)="setDone($event)" (delete)= "setDelete($event)"></app-todo-elem>
+  <!-- muss über den Selectornamen in der todo-elem.componen.ts angesprochen werden-->
+  <app-todo-elem [index]="index" [text]="elem.text" (done)="setDone($event)" (delete)="setDelete($event)"> </app-todo-elem>
 </div>
 <input type="text" #eingabe>
 <button (click)="neuEvent($event); eingabe.value=''">
@@ -10,5 +10,5 @@
 
 <div *ngFor = "let elem of todoArray">
     <!-- muss über den Selectornamen in der todo-elem.componen.ts angesprcohen werden-->
-    Index: {{elem.index}} <br> Text: {{elem.text}} <br> Done: {{elem.done}}
+    Text: {{elem.text}} Done: {{elem.done}}
   </div>
