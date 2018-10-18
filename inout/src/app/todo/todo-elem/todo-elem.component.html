@@ -1,0 +1,12 @@
+<ng-container>
+  <label>
+    {{content.text}}
+  </label>
+  <button (click)="doneEvent($event)">
+      <span *ngIf = "content.done">erledigt</span>
+      <span *ngIf = "!content.done">offen</span>
+  </button>
+  <button (click)="deleteEvent($event)">
+    delete
+  </button>
+</ng-container>

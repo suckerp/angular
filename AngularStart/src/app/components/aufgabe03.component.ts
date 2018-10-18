@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
       <h1> Aufgabe03 </h1>
   
         <!-- Übergabe des $Events an die Funktion -->
-        <button (click) = "onClick()">Start/Stop</button><br>
+        <button [style.background-color] = "(start) ? 'red':'green'" (click) = "onClick()">Start/Stop</button><br>
         <!-- im output wird soll dann der Wert aus dem input Feld eingetragen werden -->
         <div>{{stunde}}:{{minute}}:{{sekunde}}</div>
     `,
