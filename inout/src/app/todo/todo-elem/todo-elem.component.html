@@ -2,11 +2,12 @@
   <label>
     {{content.text}}
   </label>
-  <button (click)="doneEvent($event)">
+  <button #zero1 (click)="doneEvent($event)">
       <span *ngIf = "content.done">erledigt</span>
       <span *ngIf = "!content.done">offen</span>
   </button>
-  <button (click)="deleteEvent($event)">
+  <button #zero2 (click)="deleteEvent($event)">
     delete
   </button>
+  <app-counter [done]="content.done" (zero)="zeroEvent()"></app-counter>
 </ng-container>

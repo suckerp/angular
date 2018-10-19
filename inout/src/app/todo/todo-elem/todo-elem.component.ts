@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { todo } from '../todo.component';
 
 @Component({
@@ -8,9 +8,15 @@ import { todo } from '../todo.component';
 })
 export class TodoElemComponent implements OnInit {
 
+  @ViewChild('zero1')
+  zero1:ElementRef<HTMLButtonElement>
+
+  @ViewChild('zero2')
+  zero2:ElementRef<HTMLButtonElement>
+
   @Input() text:string
   @Input() index:string
-  @Output('delete') setDeleteEvent: EventEmitter<string>
+  @Output('delete') setDeleteEvent:EventEmitter<string>
   @Output('done') setDoneEvent:EventEmitter<string>
 
   public content:todo
@@ -36,6 +42,19 @@ export class TodoElemComponent implements OnInit {
 
   deleteEvent(event){
     this.setDeleteEvent.emit(this.index)
+  }
+
+  zeroEvent(){
+    if (this.zero1.nativeElement.style.backgroundColor == "red" || this.content.done == false){
+      this.zero1.nativeElement.style.backgroundColor = ""
+    } else {
+      this.zero1.nativeElement.style.backgroundColor = "red"
+    }
+    if (this.zero2.nativeElement.style.backgroundColor == "red" || this.content.done == false){
+      this.zero2.nativeElement.style.backgroundColor = ""
+    } else {
+      this.zero2.nativeElement.style.backgroundColor = "red"
+    }
   }
 
 }
