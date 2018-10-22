@@ -45,12 +45,12 @@ export class TodoElemComponent implements OnInit {
   }
 
   zeroEvent(){
-    if (this.zero1.nativeElement.style.backgroundColor == "red" || this.content.done == false){
+    if (this.zero1.nativeElement.style.backgroundColor == "red"){
       this.zero1.nativeElement.style.backgroundColor = ""
     } else {
       this.zero1.nativeElement.style.backgroundColor = "red"
     }
-    if (this.zero2.nativeElement.style.backgroundColor == "red" || this.content.done == false){
+    if (this.zero2.nativeElement.style.backgroundColor == "red"){
       this.zero2.nativeElement.style.backgroundColor = ""
     } else {
       this.zero2.nativeElement.style.backgroundColor = "red"

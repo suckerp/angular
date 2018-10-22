@@ -3,12 +3,13 @@
   <!-- muss über den Selectornamen in der todo-elem.componen.ts angesprochen werden-->
   <app-todo-elem [index]="index" [text]="elem.text" (done)="setDone($event)" (delete)="setDelete($event)"> </app-todo-elem>
 </div>
-<input type="text" #eingabe>
-<button (click)="neuEvent($event); eingabe.value=''">
+<input type="text" #eingabe placeholder="Task eingeben">
+<!-- <button class="btn" (click)="neuEvent($event); eingabe.value=''"> -->
+    <button class="btn" (click)="neuEvent(eingabe.value); eingabe.value=''">
   newToDo
 </button>
 
 <div *ngFor = "let elem of todoArray">
-    <!-- muss über den Selectornamen in der todo-elem.componen.ts angesprcohen werden-->
+    <!-- muss über den Selectornamen in der todo-elem.componen.ts angesprochen werden-->
     Text: {{elem.text}} Done: {{elem.done}}
 </div>

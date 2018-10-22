@@ -11,9 +11,9 @@ export type todo = {
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-
+/*
   @ViewChild('eingabe')
-  eingabe:ElementRef<HTMLInputElement>
+  eingabe:ElementRef<HTMLInputElement>*/
 
   todoArray:todo[] = []
 
@@ -22,10 +22,11 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   }
 
-  neuEvent(event:Event){
+  neuEvent(text){
 
     this.todoArray.push({
-      text: this.eingabe.nativeElement.value,
+      text,
+      //text: this.eingabe.nativeElement.value,
       done:false
     })
   }

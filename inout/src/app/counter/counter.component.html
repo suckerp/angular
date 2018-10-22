@@ -1,6 +1,6 @@
 <label *ngIf ="!sekunde">
   <input #zeit class="no-spinners" type="number" pattern="[0-9]*" inputmode="numeric" placeholder="Zeit in ganzen Minuten eingeben">
-  <button (click)="zeitEvent(zeit.value)">
+  <button class="btn" (click)="zeitEvent(zeit.value)">
     Zeit eingeben
   </button>
 </label>

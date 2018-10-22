@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+input{
+    max-width: 30vw;
+}
+
+.btn{
+    font-size: 1em;
+    padding: 0vw 1vw;
+    margin: 0vw 1vw;
+}
+
+.btn2{
+    font-size: 1em;
+    padding: 0vw 1vw;
+    margin-right: 0vw;
+}
