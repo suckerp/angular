@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './ausgabe.component.html',
   styleUrls: ['./ausgabe.component.css']
 })
+
 export class AusgabeComponent implements OnInit {
 
   ausgabe:BehaviorSubject<string>
