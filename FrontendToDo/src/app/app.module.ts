@@ -4,10 +4,16 @@ import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http'
 import { DbService, Person } from './db.service';
 
 import { AppComponent } from './app.component';
+import { ParentComponent } from './parent/parent.component';
+import { PersonComponent } from './person/person.component';
+import { TodolistComponent } from './todolist/todolist.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ParentComponent,
+    PersonComponent,
+    TodolistComponent
   ],
   imports: [
     BrowserModule,

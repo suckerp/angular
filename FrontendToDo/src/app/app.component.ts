@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DbService, Person, TodoList } from './db.service';
 
 
 @Component({
@@ -10,6 +9,8 @@ import { DbService, Person, TodoList } from './db.service';
 export class AppComponent {
   title = 'ToDo2';
 
+
+/*
   test:Person = {
     pid: 0,
     firstName: "nö",
@@ -23,5 +24,5 @@ export class AppComponent {
       console.log(x) 
       this.test=x}
     )
-  }
+  }*/
 }
