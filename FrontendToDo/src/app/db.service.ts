@@ -22,11 +22,12 @@ export type getTable = {
   wheres: string
 }
 
-export type insertTable = {
+export type insertIntoTable = {
   table: string,
   mask: string,
   values: string
 }
+
 
 
 
@@ -42,13 +43,11 @@ export class DbService {
     this.getTable$({table: "person", cols: "*", wheres: ""}).subscribe(
       ((x:Person[])=>{
         this.personen.next(x)
-        console.log(this.personen.getValue())
       })
     )
     this.getTable$({table: "todolist", cols: "*", wheres: ""}).subscribe(
       ((x:Todo[])=>{
         this.todolist.next(x)
-        console.log(this.todolist.getValue())
       })
     )
   }
@@ -57,12 +56,12 @@ export class DbService {
     return this._http.post("http://localhost:3000/select", getTable)
   }
 
-  insertToDo$(insertTable:insertTable){
-    return this._http.post("http://localhost:3000/insert", insertTable)
+  insertToDo$(insertIntoTable:insertIntoTable){
+    return this._http.post("http://localhost:3000/insert", insertIntoTable)
   }
 
-  deleteTable$(deleteTable:getTable){
-    return this._http.post("http://localhost:3000/delete", deleteTable)
+  deleteFromTodo$(deleteFromTodo:getTable){
+    return this._http.post("http://localhost:3000/delete", deleteFromTodo)
   }
 
   insertTodo(text:string, pid:string){
@@ -83,8 +82,8 @@ export class DbService {
     )
   }
 
-  deleteTodo(todo:Todo){
-    this.deleteTable$({
+  deleteFromTodo(todo:Todo){
+    this.deleteFromTodo$({
       table: "todolist",
       cols: "",
       wheres: `tid=${todo.tid}`
@@ -100,6 +99,61 @@ export class DbService {
       }
     )
   }
+  
+
+/*
+    personen: rx.Observable<any>
+    todolist: rx.Observable<any>
+  
+    constructor(public _http:HttpClient) { 
+      this.personen = this.getTable$({table: "person", cols: "*", wheres: ""})
+  
+      this.todolist = this.getTable$({table: "todolist", cols: "*", wheres: ""})
+    }
+      
+    getTable$(getTable:getTable){
+      return this._http.post("http://localhost:3000/select", getTable)
+    }
+  
+    insertToDo$(insertIntoTable:insertIntoTable){
+      return this._http.post("http://localhost:3000/insert", insertIntoTable)
+    }
+  
+    deleteFromTodo$(deleteFromTodo:getTable){
+      return this._http.post("http://localhost:3000/delete", deleteFromTodo)
+    }
+  
+    insertTodo(text:string, pid:string){
+      this.insertToDo$({
+        table: "todolist",
+        mask: "(text, status, pid)",
+        values: `("${text}", 0, ${pid})`
+      }).subscribe(
+        x=>{
+          this.todolist = this.getTable$({
+            table: "todolist",
+            cols: "*",
+            wheres: ""
+          })
+        }
+      )
+    }
+  
+    deleteFromTodo(todo:Todo){
+      this.deleteFromTodo$({
+        table: "todolist",
+        cols: "",
+        wheres: `tid=${todo.tid}`
+      }).subscribe(
+        x=>{
+          this.todolist = this.getTable$({
+            table: "todolist",
+            cols: "*",
+            wheres: ""
+          })
+        }
+      )
+  */
 
 
 

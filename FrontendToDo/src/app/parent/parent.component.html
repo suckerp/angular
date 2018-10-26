@@ -9,6 +9,7 @@
     </tr>
   </thead>
   <tbody>
+    <!-- <tr *ngFor = "let row of db.personen | async"> -->
     <tr *ngFor = "let row of db.personen.getValue()">
       <td>{{row.pid}}</td>
       <td>{{row.firstName}}</td>
@@ -17,6 +18,7 @@
   </tbody>
 </table>
 <app-todolist></app-todolist>
+<!-- <div *ngFor = "let row of db.personen | async"> -->
 <div *ngFor = "let person of db.personen.getValue()">
   <app-person [person]="person"></app-person>
 </div>
