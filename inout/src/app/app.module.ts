@@ -1,6 +1,8 @@
+import 'materialize-css';
+import { MaterializeModule } from 'angular2-materialize';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
